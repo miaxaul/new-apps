@@ -60,8 +60,8 @@ jobs:
 
       - name: Zip Artifacts
         run: |
-          Zip -f artifacts.zip .
+          zip -r artifacts.zip .
 
       - name: Upload artifact to S3
         run: |
-          aws s3 cp artifacts.zip s3://${{ env.S3_BUCKET }}/Dockerrun.aws.json-${{ env.PIPELINE_ID }}
+          aws s3 cp artifacts.zip s3://${{ env.S3_BUCKET }}/artifacts-${{ env.PIPELINE_ID }}.zip
